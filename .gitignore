@@ -113,6 +113,25 @@ yarn-error.log*
 # Vite build output
 dist/
 
+# Python virtual environment
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Pipenv files
+Pipfile.lock
+
+# pyenv
+.python-version
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
 # Local env files
 .env
 .env.local
