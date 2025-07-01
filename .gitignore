@@ -251,3 +251,16 @@ public/
 .idea/
 *.sublime-project
 *.sublime-workspace
+node_modules/
+
+
+# Build output (if you're using Vite, React Scripts, etc.)
+dist/
+build/
+
+# Vite cache
+.vite/
+
+#  Logs
+logs
+*.log
