@@ -17,7 +17,7 @@ export default function Register() {
       return
     }
     try {
-      await axios.post('/register', { email, password })
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/register`, { email, password })
       navigate('/login')
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed')

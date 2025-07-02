@@ -17,7 +17,7 @@ export default function AddEditVendor() {
     if (isEdit) {
       const fetchVendor = async () => {
         try {
-          const response = await axios.get(`/vendors/${id}`, {
+          const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/vendors/${id}`, {
             headers: { Authorization: `Bearer ${user.token}` },
           })
           setName(response.data.name)
@@ -37,13 +37,13 @@ export default function AddEditVendor() {
     try {
       if (isEdit) {
         await axios.put(
-          `/vendors/${id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/vendors/${id}`,
           { name, description, location },
           { headers: { Authorization: `Bearer ${user.token}` } }
         )
       } else {
         await axios.post(
-          '/vendors',
+          `${import.meta.env.VITE_BACKEND_URL}/vendors`,
           { name, description, location },
           { headers: { Authorization: `Bearer ${user.token}` } }
         )

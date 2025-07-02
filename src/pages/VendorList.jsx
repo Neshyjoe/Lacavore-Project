@@ -14,7 +14,7 @@ export default function VendorList() {
       setLoading(true)
       setError('')
       try {
-        const response = await axios.get('/vendors', {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/vendors`, {
           headers: { Authorization: `Bearer ${user.token}` },
         })
         setVendors(response.data)

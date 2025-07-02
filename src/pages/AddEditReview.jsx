@@ -19,7 +19,7 @@ export default function AddEditReview() {
     if (isEdit) {
       const fetchReview = async () => {
         try {
-          const response = await axios.get(`/reviews/${id}`, {
+          const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/reviews/${id}`, {
             headers: { Authorization: `Bearer ${user.token}` },
           })
           setVendorId(response.data.vendor_id)
@@ -39,13 +39,13 @@ export default function AddEditReview() {
     try {
       if (isEdit) {
         await axios.put(
-          `/reviews/${id}`,
+          `${import.meta.env.VITE_BACKEND_URL}/reviews/${id}`,
           { vendor_id: vendorId, rating, comment },
           { headers: { Authorization: `Bearer ${user.token}` } }
         )
       } else {
         await axios.post(
-          '/reviews',
+          `${import.meta.env.VITE_BACKEND_URL}/reviews`,
           { vendor_id: vendorId, rating, comment },
           { headers: { Authorization: `Bearer ${user.token}` } }
         )

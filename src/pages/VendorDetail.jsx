@@ -16,7 +16,7 @@ export default function VendorDetail() {
       setLoading(true)
       setError('')
       try {
-        const response = await axios.get(`/vendors/${id}`, {
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/vendors/${id}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         })
         setVendor(response.data)
@@ -32,7 +32,7 @@ export default function VendorDetail() {
   const handleDelete = async () => {
     if (!window.confirm('Are you sure you want to delete this vendor?')) return
     try {
-      await axios.delete(`/vendors/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/vendors/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       })
       navigate('/vendors')

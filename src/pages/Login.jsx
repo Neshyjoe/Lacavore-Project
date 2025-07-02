@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault()
     setError('')
     try {
-      const response = await axios.post('/login', { email, password })
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, { email, password })
       login(response.data.token)
       navigate('/vendors')
     } catch (err) {
